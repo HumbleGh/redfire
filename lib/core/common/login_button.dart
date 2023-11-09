@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redfire/core/constants/constants.dart';
+import 'package:redfire/theme/app_layout.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
@@ -9,7 +10,10 @@ class LoginButton extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: () {},
       label: const Text("Continue with Google"),
-      icon: Image.asset(Constants.googlePath),
+      icon: Image.asset(
+        Constants.googlePath,
+        width: AppLayout.getHeight(40),
+      ),
     );
   }
 }
