@@ -16,6 +16,7 @@ class LoginScreen extends StatelessWidget {
           Constants.logoPath,
           height: 40,
         ),
+        centerTitle: true,
         actions: [TextButton(onPressed: () {}, child: const Text("Skip"))],
       ),
       body: Container(

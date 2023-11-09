@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268612230833",
+    "project_id": "redfire-30a84",
+    "storage_bucket": "redfire-30a84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268612230833:android:2aa5863861b693c501cc90",
+        "android_client_info": {
+          "package_name": "com.example.redfire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBix3KX5_Uz45CFKN-fRJfcHJsDmRj_W-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
