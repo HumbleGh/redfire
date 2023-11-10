@@ -107,7 +107,6 @@
 				56F0AD7771E87F425AD72DCF /* Pods-RunnerTests.release.xcconfig */,
 				77921D723A1A2A175AC57213 /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,13 +124,13 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
+				8CDC68668E8ECF634D67560B /* GoogleService-Info.plist */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
 				331C8082294A63A400263BE5 /* RunnerTests */,
 				74FDFA36A054437756CABF4E /* Pods */,
 				9A932A92E3B1505C52535B3D /* Frameworks */,
-				8CDC68668E8ECF634D67560B /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
