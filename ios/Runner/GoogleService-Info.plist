@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>268612230833-ulikmcpcg3sv0iahh8gfmhltq9gam0vf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.268612230833-ulikmcpcg3sv0iahh8gfmhltq9gam0vf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAUFsGlk-t9PoiGcPUSvpxrlm7lerbOXAw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>268612230833</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.redfire</string>
+	<key>PROJECT_ID</key>
+	<string>redfire-30a84</string>
+	<key>STORAGE_BUCKET</key>
+	<string>redfire-30a84.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:268612230833:ios:c795ce5998d8dce301cc90</string>
+</dict>
+</plist>
