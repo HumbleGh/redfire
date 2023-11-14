@@ -12,7 +12,20 @@
           "package_name": "com.example.redfire"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "268612230833-3s1n85rdpdtro47f8avjp4nv53sorn1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.redfire",
+            "certificate_hash": "82dabe6c96133911fa43613c651b29a80d69725c"
+          }
+        },
+        {
+          "client_id": "268612230833-e9omngu5v9fb6aqa41bscgnbv786ie1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBix3KX5_Uz45CFKN-fRJfcHJsDmRj_W-Q"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268612230833-e9omngu5v9fb6aqa41bscgnbv786ie1v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "268612230833-ulikmcpcg3sv0iahh8gfmhltq9gam0vf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.redfire"
+              }
+            }
+          ]
         }
       }
     }
