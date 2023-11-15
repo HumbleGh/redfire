@@ -1,8 +1,17 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../../../core/providers/firebase_providers.dart';
+
+final authRepositoryProvider = Provider(
+  (ref) => AuthRepository(
+    auth: ref.read(authProvider),
+    firestore: ref.read(firestoreProvider),
+    googleSignIn: ref.read(googleSignInProvider),
+  ),
+);
 
 class AuthRepository {
   final FirebaseAuth _auth;
@@ -36,6 +45,6 @@ class AuthRepository {
       print(userCredential.user?.email);
     } catch (e) {
       print(e);
-    } // Avoid empty catch block
+    }
   }
 }
