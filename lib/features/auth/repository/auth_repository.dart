@@ -33,7 +33,7 @@ class AuthRepository {
   CollectionReference get _users =>
       _fireStore.collection(FirebaseConstants.usersCollection);
 
-  void signInWithGoogle() async {
+  Future<UserModels> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
@@ -49,7 +49,8 @@ class AuthRepository {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
 
-      UserModels userModel;
+// remove late frim here later on in the application
+      late UserModels userModel;
 
       // Checks if user is new
       if (userCredential.additionalUserInfo!.isNewUser) {
@@ -65,13 +66,9 @@ class AuthRepository {
         await _users.doc(userCredential.user!.uid).set(userModel.toMap());
       }
 
-      // Getting user details from google
-
-      // This should save our data to firebase_firestore
-
-      print(userCredential.user?.email);
+      return userModel;
     } catch (e) {
-      print(e);
+      rethrow;
     }
   }
 }
