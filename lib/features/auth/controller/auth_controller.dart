@@ -17,7 +17,9 @@ class AuthController {
 
   // Using the signInwithGoogle Function created earlier
 
-  void sigInWithGoogle() {
-    _authRepository.signInWithGoogle();
+  void sigInWithGoogle() async {
+    final user = await _authRepository.signInWithGoogle();
+    // The code below handles errors
+    user.fold((l) => null, (r) => null);
   }
 }
