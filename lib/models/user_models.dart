@@ -65,7 +65,7 @@ class UserModels {
     );
   }
 
-// This is required when getting tghe data from an api but since we atre utilizing firebase, it is not needed.
+// This is required when getting tghe data from an api but since we atre utilizing firebase, it
   // String toJson() => json.encode(toMap());
 
   // factory UserModels.fromJson(String source) =>

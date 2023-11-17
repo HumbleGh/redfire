@@ -49,19 +49,25 @@ class AuthRepository {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
 
+      UserModels userModel;
+
+      // Checks if user is new
+      if (userCredential.additionalUserInfo!.isNewUser) {
+        userModel = UserModels(
+          name: userCredential.user!.displayName ?? 'No Name',
+          profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
+          banner: Constants.bannerDefault,
+          uid: userCredential.user!.uid,
+          isAuthenticated: true,
+          karma: 0,
+          awards: [],
+        );
+        await _users.doc(userCredential.user!.uid).set(userModel.toMap());
+      }
+
       // Getting user details from google
 
-      UserModels userModel = UserModels(
-        name: userCredential.user!.displayName ?? 'No Name',
-        profilePic: userCredential.user!.photoURL ?? Constants.avatarDefault,
-        banner: Constants.bannerDefault,
-        uid: userCredential.user!.uid,
-        isAuthenticated: true,
-        karma: 0,
-        awards: [],
-      );
-
-      _users.doc();
+      // This should save our data to firebase_firestore
 
       print(userCredential.user?.email);
     } catch (e) {
