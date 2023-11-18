@@ -53,7 +53,7 @@ class AuthRepository {
           await _auth.signInWithCredential(credential);
 
 // remove late frim here later on in the application
-      late UserModels userModel;
+      UserModels userModel;
 
       // Checks if user is new
       if (userCredential.additionalUserInfo!.isNewUser) {
@@ -67,6 +67,8 @@ class AuthRepository {
           awards: [],
         );
         await _users.doc(userCredential.user!.uid).set(userModel.toMap());
+      } else {
+        userModel = await getUserData(userCredential.user!.uid).first;
       }
 
       return right(userModel);
@@ -75,5 +77,10 @@ class AuthRepository {
     } catch (e) {
       return left(Failure(e.toString()));
     }
+  }
+
+  Stream<UserModels> getUserData(String uid) {
+    return _users.doc(uid).snapshots().map(
+        (event) => UserModels.fromMap(event.data() as Map<String, dynamic>));
   }
 }
