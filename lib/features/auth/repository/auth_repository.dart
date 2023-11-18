@@ -1,12 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:redfire/core/constants/constants.dart';
 import 'package:redfire/core/constants/firebase_constants.dart';
+import 'package:redfire/core/failure.dart';
 import 'package:redfire/models/user_models.dart';
 
 import '../../../core/providers/firebase_providers.dart';
+import '../../../core/type_defs.dart';
 
 final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
@@ -33,7 +36,7 @@ class AuthRepository {
   CollectionReference get _users =>
       _fireStore.collection(FirebaseConstants.usersCollection);
 
-  Future<UserModels> signInWithGoogle() async {
+  FutureEither<UserModels> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
@@ -66,9 +69,11 @@ class AuthRepository {
         await _users.doc(userCredential.user!.uid).set(userModel.toMap());
       }
 
-      return userModel;
+      return right(userModel);
+    } on FirebaseException catch (e) {
+      throw e.message!;
     } catch (e) {
-      rethrow;
+      return left(Failure(e.toString()));
     }
   }
 }
