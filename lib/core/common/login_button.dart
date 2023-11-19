@@ -12,7 +12,7 @@ class LoginButton extends ConsumerWidget {
   // The Sign in function - Being created outside of the login button
   // to avoid rewriting it all over again when the design of the button changes.
   void signInWithGoogle(BuildContext context, WidgetRef ref) {
-    ref.read(authControllerProvider).sigInWithGoogle(context);
+    ref.read(authControllerProvider.notifier).sigInWithGoogle(context);
   }
 
   @override

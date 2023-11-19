@@ -11,14 +11,14 @@ final userProvider = StateProvider<UserModels?>((ref) => null);
 //the auth repo and then binds it to the private variable
 
 // Create a provider for thr auth controller
-final authControllerProvider = Provider(
+final authControllerProvider = StateNotifierProvider<AuthController, bool>(
   (ref) => AuthController(
-    authRepository: ref.read(authRepositoryProvider),
+    authRepository: ref.watch(authRepositoryProvider),
     ref: ref,
   ),
 );
 
-class AuthController extends StateNotifier {
+class AuthController extends StateNotifier<bool> {
   final AuthRepository _authRepository;
   final Ref _ref;
   AuthController({required AuthRepository authRepository, required Ref ref})
@@ -30,7 +30,9 @@ class AuthController extends StateNotifier {
 
   // Using the signInwithGoogle Function created earlier
   void sigInWithGoogle(BuildContext context) async {
+    state = true;
     final user = await _authRepository.signInWithGoogle();
+    state = false;
     // The code below handles errors
     user.fold(
         (l) => showSnackBar(context, l.message),
