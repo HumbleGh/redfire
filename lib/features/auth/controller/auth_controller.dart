@@ -18,12 +18,13 @@ final authControllerProvider = Provider(
   ),
 );
 
-class AuthController {
+class AuthController extends StateNotifier {
   final AuthRepository _authRepository;
   final Ref _ref;
   AuthController({required AuthRepository authRepository, required Ref ref})
       : _authRepository = authRepository,
-        _ref = ref;
+        _ref = ref,
+        super(false); //Represents loading
 
   // The private variable are gonna be used in all the various classes to be created.
 
@@ -33,7 +34,7 @@ class AuthController {
     // The code below handles errors
     user.fold(
         (l) => showSnackBar(context, l.message),
-        (UserModels) =>
-            _ref.read(userProvider.notifier).update((state) => UserModels));
+        (userModel) =>
+            _ref.read(userProvider.notifier).update((state) => userModel));
   }
 }
